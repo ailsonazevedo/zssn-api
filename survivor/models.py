@@ -9,7 +9,6 @@ class Base(models.Model):
     updated_at = models.DateTimeField('Atualizado em', auto_now=True)
 
 class Survivor(Base):
-    #Um sobrevivente deve ter um nome, idade, sexo e último local (latitude,longitude).
     GENDER_CHOICES = (
         ('M', 'Masculino'),
         ('F', 'Feminino')
@@ -19,7 +18,7 @@ class Survivor(Base):
     gender = models.CharField('Gênero:',choices=GENDER_CHOICES,null=False, max_length=1)
     latitude = models.FloatField('Latitude:',max_length=50)
     longitude = models.FloatField('Longitude:',max_length=50)
-    infected = models.BooleanField('Infectado', default=False)
+    infected = models.BooleanField('Sobrevivente Infectado?',default=False)
     
     class Meta:
         verbose_name = ('Sobrevivente')
@@ -29,5 +28,18 @@ class Survivor(Base):
     def __str__(self):
         return self.name
 
+    def get_location(self):
+        return '{}, {}'.format(self.latitude, self.longitude)
 
+class Item(Base):
+    name = models.CharField('Nome:',max_length=150,null=False)
+    points = models.IntegerField('Pontos:',null=False)
+    
+    class Meta:
+        verbose_name = ('Item')
+        verbose_name_plural = ('Itens')
+        ordering = ['id']
+    
+    def __str__(self):
+        return self.name
 # Create your models here.

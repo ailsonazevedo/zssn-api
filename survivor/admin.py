@@ -1,9 +1,14 @@
 from calendar import c
 from django.contrib import admin
-from survivor.models import Survivor
+from survivor.models import Survivor, Item
 
 # Register your models here.
 @admin.register(Survivor)
 class SurvivorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'age', 'gender', 'latitude', 'longitude','infected')
+    list_display = ('name', 'age', 'gender', 'latitude', 'longitude','infected', 'get_location')
     list_filter = ('name', 'age', 'gender', 'infected')
+
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'points')
+    list_filter = ('name', 'points')
