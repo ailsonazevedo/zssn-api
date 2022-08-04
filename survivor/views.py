@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from survivor.serializers import InventorySerializer, ItemSerializer, SurvivorSerializer
+from survivor.api.serializers import InventorySerializer, ItemSerializer, SurvivorSerializer
 
 from survivor.models import Survivor, Item, Inventory
 

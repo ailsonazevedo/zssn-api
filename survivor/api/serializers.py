@@ -1,5 +1,5 @@
 from rest_framework import serializers, viewsets, routers
-from .models import Survivor, Item, Inventory
+from ..models import Survivor, Item, Inventory
 
 class SurvivorSerializer(serializers.ModelSerializer):
     class Meta:
