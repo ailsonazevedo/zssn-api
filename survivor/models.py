@@ -42,4 +42,17 @@ class Item(Base):
     
     def __str__(self):
         return self.name
+
+class Inventory(models.Model):
+    survivor = models.ForeignKey(Survivor, on_delete=models.CASCADE)
+    item = models.ManyToManyField(Item)
+    quantity = models.IntegerField('Quantidade:',null=False)
+    
+    class Meta:
+        verbose_name = ('Inventário')
+        verbose_name_plural = ('Inventários')
+        ordering = ['id']
+    
+    def __str__(self):
+        return self.survivor.name
 # Create your models here.

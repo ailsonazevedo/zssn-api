@@ -1,6 +1,6 @@
 from calendar import c
 from django.contrib import admin
-from survivor.models import Survivor, Item
+from survivor.models import Inventory, Survivor, Item
 
 # Register your models here.
 @admin.register(Survivor)
@@ -12,3 +12,8 @@ class SurvivorAdmin(admin.ModelAdmin):
 class ItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'points')
     list_filter = ('name', 'points')
+
+@admin.register(Inventory)
+class InventoryAdmin(admin.ModelAdmin):
+    list_display = ('survivor', 'quantity')
+    list_filter = ('survivor', 'item')
