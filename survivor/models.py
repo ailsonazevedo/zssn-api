@@ -16,8 +16,8 @@ class Survivor(Base):
     name = models.CharField(max_length=150,null=False)
     age = models.IntegerField('Idade:',null=False)
     gender = models.CharField('Gênero:',choices=GENDER_CHOICES,null=False, max_length=1)
-    latitude = models.FloatField('Latitude:',max_length=50)
-    longitude = models.FloatField('Longitude:',max_length=50)
+    latitude = models.FloatField('Latitude:',max_length=100)
+    longitude = models.FloatField('Longitude:',max_length=100)
     infected = models.BooleanField('Sobrevivente Infectado?',default=False)
     
     class Meta:
