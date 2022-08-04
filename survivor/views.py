@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from survivor.serializers import SurvivorSerializer
+from survivor.serializers import InventorySerializer, ItemSerializer, SurvivorSerializer
 
-from survivor.models import Survivor
+from survivor.models import Survivor, Item, Inventory
 
 class SurvivorViewSet(viewsets.ModelViewSet):
     queryset = Survivor.objects.all()
@@ -10,8 +10,8 @@ class SurvivorViewSet(viewsets.ModelViewSet):
 
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Survivor.objects.all()
-    serializer_class = SurvivorSerializer
+    serializer_class = ItemSerializer
 
 class InventoryViewSet(viewsets.ModelViewSet):
-    queryset = Survivor.objects.all()
-    serializer_class = SurvivorSerializer
+    queryset = Inventory.objects.all()
+    serializer_class = InventorySerializer
