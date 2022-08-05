@@ -4,7 +4,7 @@ from ..models import Survivor, Item, Inventory
 class SurvivorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Survivor
-        fields = ['id','name', 'age', 'gender', 'infected', 'latitude', 'longitude','get_location']
+        fields = ['id','name', 'age', 'gender', 'infected', 'latitude', 'longitude','get_location', 'count_reports']
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:

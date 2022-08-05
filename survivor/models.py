@@ -15,6 +15,7 @@ class Survivor(Base):
     latitude = models.FloatField('Latitude:',max_length=100)
     longitude = models.FloatField('Longitude:',max_length=100)
     infected = models.BooleanField('Sobrevivente Infectado?',default=False)
+    count_reports = models.IntegerField('Quantidade de Relatos:',default=0)
     
     class Meta:
         verbose_name = ('Sobrevivente')
